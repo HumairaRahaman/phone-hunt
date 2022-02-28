@@ -15,7 +15,7 @@
   </head>
   <body>
     <!-- search box -->
-    <h2 class="text-success text-center">see and tack</h2>
+    <h1 class="text-success text-center">See & Tack</h1>
     <div class="input-group mb-3 mx-auto w-75">
       <input
         id="search-box"
@@ -34,9 +34,34 @@
         Search
       </button>
     </div>
-
+    <!-- phone detail -->
+    <div id="phone-detail" class="mx-auto w-50 pb-5">
+      <div class="error" id="error">
+        <div class="modal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>Modal body text goes here.</p>
+              </div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- card shows -->
-    <div id="show-phones" class="row row-cols-1 row-cols-md-3 g-4"></div>
+    <div class="container">
+      <div id="show-phones" class="row row-cols-1 row-cols-md-3 g-4"></div>
+    </div>
     <!-- javascript -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
