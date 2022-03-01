@@ -121,7 +121,44 @@ const displayPhoneDetail = details =>{
 
 
 //relase date error solved
-    if(details.releaseDate === ''){
+    if((details.releaseDate === '') || (details.others === undefined)){
+
+
+        //details others condition for undafine
+        if(details.others === undefined){
+            div.innerHTML = `<img src="${details.image}" class="card-img-top w-25 mx-auto img-fluid" alt="..." />
+        <div class="card-body">
+        
+          <h5 class="card-title text-success" id="relese-date">${details.releaseDate}</h5>
+
+          <h4 class="card-title" id="relese-date">MainFeatures:</h4>
+          
+          <p class="card-text">
+          Storage: ${details.mainFeatures.storage}
+          </p>
+          <p class="card-text">
+          DisplaySize: ${details.mainFeatures.displaySize}
+          </p>
+          <p class="card-text">
+          ChipSet: ${details.mainFeatures.chipSet}
+          </p>
+          <p class="card-text">
+          Memory: ${details.mainFeatures.memory}
+          </p>
+          <p class="card-text">
+          Sensors: ${details.mainFeatures.sensors}
+          </p>
+
+
+          <h4 class="card-title" id="relese-date">Others:</h4>
+            <p class="card-text text-danger">
+             Plz check later...
+            </p>
+           
+          
+        </div>`
+        }
+        else{
         div.innerHTML = `<img src="${details.image}" class="card-img-top w-25 mx-auto img-fluid" alt="..." />
         <div class="card-body">
         
@@ -167,6 +204,7 @@ const displayPhoneDetail = details =>{
             </p>
           
         </div>`
+        }
     }
     else{
         div.innerHTML = `<img src="${details.image}" class="card-img-top w-25 mx-auto img-fluid" alt="..." />
