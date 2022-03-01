@@ -1,5 +1,5 @@
 body {
-  background-image: url(../endless-constellation.svg);
+  background-image: url(../images/endless-constellation.svg);
 }
 .display-body {
   padding: 100px 0;
@@ -98,6 +98,10 @@ body {
   border-radius: 5px;
   box-shadow: 1px 5px 10px 0px rgba(0, 255, 76, 0.239);
 }
+.spinner {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
   .bottom-button {
     margin-top: 50px;

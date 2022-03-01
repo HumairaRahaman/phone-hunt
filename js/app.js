@@ -1,6 +1,6 @@
 // show all phone button search event
 const allPhone = () =>{
-    
+    spinner("block")
     const searchValue = document.getElementById('search-box')
     searchText = searchValue.value
     console.log(searchText)
@@ -10,6 +10,7 @@ const allPhone = () =>{
     .then((res) => res.json())
     .then(data => displayPhones(data.data))
     document.getElementById('search-box').value = ''
+    spinner("none")
 
 }
 
@@ -23,6 +24,7 @@ const displayPhones = phones =>{
    console.log(phones.length)
    if(phones.length === 0){
        document.getElementById('error').style.display = 'block'
+       spinner("block")
    }
    else{
     
@@ -302,6 +304,11 @@ const displayPhoneDetail = details =>{
     phoneDetails.appendChild(div)
     
 }
+
+// spinner
+const spinner = (spin) => {
+    document.getElementById("spinner").style.display = spin;
+  };
 
 
 
