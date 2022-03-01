@@ -37,16 +37,16 @@ const displayPhones = phones =>{
      const div = document.createElement('div')
      div.classList.add('col')
      div.innerHTML = `
-     <div class="card">
+     <div class="card p-4 shadow p-3 mb-5 bg-body rounded bg-transparent">
             <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="..." />
         <div class="card-body">
-            <h2 class="card-title">${phone.brand}</h2>
-            <h5 class="card-text">
+            <h2 class="card-title text-info">${phone.brand}</h2>
+            <h5 class="card-text badge rounded-pill bg-primary">
             ${phone.phone_name}
             </h5>
         </div>
-        <div class="card-footer bg-transparent">
-        <button onClick="showDetail('${phone.slug}')" class="btn btn-primary mx-auto" type="submit">Details</button>
+        <div class="card-footer text-center bg-transparent">
+        <button onClick="showDetail('${phone.slug}')" class="btn btn-warning border border-warning rounded-top btn-lg  mx-auto" type="submit">Details</button>
         </div>
    </div>
    
@@ -69,16 +69,16 @@ const displayPhones = phones =>{
      const div = document.createElement('div')
      div.classList.add('col')
      div.innerHTML = `
-     <div class="card">
+     <div class="card p-4 shadow-lg p-3 mb-5 bg-body rounded bg-transparent">
             <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="..." />
         <div class="card-body">
-            <h2 class="card-title">${phone.brand}</h2>
-            <h5 class="card-text">
+            <h2 class="card-title text-info">${phone.brand}</h2>
+            <h5 class="card-text badge rounded-pill bg-primary">
             ${phone.phone_name}
             </h5>
         </div>
-        <div class="card-footer bg-transparent">
-        <button onClick="showDetail('${phone.slug}')" class="btn btn-primary mx-auto" type="submit">Details</button>
+        <div class="card-footer text-center  bg-transparent">
+        <button onClick="showDetail('${phone.slug}')" class="btn btn-warning rounded-top border border-warning btn-lg  mx-auto" type="submit">Details</button>
         </div>
    </div>
 
@@ -115,8 +115,8 @@ const displayPhoneDetail = details =>{
     const phoneDetails = document.getElementById('phone-detail')
     const div = document.createElement('div')
  
-    div.classList.add('card')
-    div.classList.add('my-5')
+    div.classList.add('card','shadow-lg','p-3','mb-5','bg-body','rounded','mt-5','p-2')
+    div.classList.add()
     console.log(details.releaseDate)
 
 
@@ -127,44 +127,52 @@ const displayPhoneDetail = details =>{
         //details others condition for undafine
         if(details.others === undefined){
             div.innerHTML = `<img src="${details.image}" class="card-img-top w-25 mx-auto img-fluid" alt="..." />
-        <div class="card-body">
+           
+        <div class="card-body p-2 mt-5 shadow-lg p-3 mb-5 bg-body rounded bg-transparent">
+        <h2 class="card-title text-info">${details.brand}</h2>
+        <h5 class="card-text badge rounded-pill bg-primary"> ${details.name}
+        </h5>
         
-          <h5 class="card-title text-success" id="relese-date">${details.releaseDate}</h5>
+          <h5 class="card-title badge bg-info fs-6 d-block w-50 text-wrap" id="relese-date">${details.releaseDate}</h5>
 
-          <h4 class="card-title" id="relese-date">MainFeatures:</h4>
+          <h4 class="card-title badge bg-warning  fs-5 my-2 text-uppercase text-wrap" id="relese-date">MainFeatures:</h4>
           
-          <p class="card-text">
+          <p class="card-text ">
           Storage: ${details.mainFeatures.storage}
           </p>
-          <p class="card-text">
+          <p class="card-text ">
+          Storage: ${details.mainFeatures.displaySize}
+          </p>
+          <p class="card-text ">
           DisplaySize: ${details.mainFeatures.displaySize}
           </p>
-          <p class="card-text">
+          <p class="card-text ">
           ChipSet: ${details.mainFeatures.chipSet}
           </p>
-          <p class="card-text">
+          <p class="card-text ">
           Memory: ${details.mainFeatures.memory}
           </p>
-          <p class="card-text">
+          <p class="card-text ">
           Sensors: ${details.mainFeatures.sensors}
           </p>
 
 
-          <h4 class="card-title" id="relese-date">Others:</h4>
-            <p class="card-text text-danger">
-             Plz check later...
-            </p>
+          <h4 class="card-title badge bg-danger fs-6 text-wrap" id="relese-date">Others: Plz check later...</h4>
+           
            
           
         </div>`
         }
         else{
         div.innerHTML = `<img src="${details.image}" class="card-img-top w-25 mx-auto img-fluid" alt="..." />
-        <div class="card-body">
-        
-          <h5 class="card-title text-danger" id="relese-date">Realease Date is not found</h5>
+        <div class="card-body p-2 mt-5 shadow-lg p-3 mb-5 bg-body rounded bg-transparent">
 
-          <h4 class="card-title" id="relese-date">MainFeatures:</h4>
+         <h2 class="card-title text-info">${details.brand}</h2>
+        <h5 class="card-text badge rounded-pill bg-primary"> ${details.name}
+        </h5>
+          <h5 class="card-title badge bg-danger fs-6 d-block w-50 text-wrap" id="relese-date">Realease Date is not found!</h5>
+
+          <h4 class="card-title card-title badge bg-warning fs-5 my-2 text-uppercase text-wrap" id="relese-date">MainFeatures:</h4>
           
           <p class="card-text">
           Storage: ${details.mainFeatures.storage}
@@ -183,7 +191,7 @@ const displayPhoneDetail = details =>{
           </p>
 
 
-          <h4 class="card-title" id="relese-date">Others:</h4>
+          <h4 class="card-title card-title badge bg-success fs-5 my-2 text-uppercase" id="relese-date">Others:</h4>
             <p class="card-text">
             Bluetooth: ${details.others.Bluetooth}
             </p>
@@ -208,11 +216,15 @@ const displayPhoneDetail = details =>{
     }
     else{
         div.innerHTML = `<img src="${details.image}" class="card-img-top w-25 mx-auto img-fluid" alt="..." />
-    <div class="card-body">
-    
-      <h5 class="card-title text-success" id="relese-date">${details.releaseDate}</h5>
+    <div class="card-body p-2 mt-5 shadow-lg p-3 mb-5 bg-body rounded bg-transparent">
 
-      <h4 class="card-title" id="relese-date">MainFeatures:</h4>
+
+     <h2 class="card-title text-info">${details.brand}</h2>
+        <h5 class="card-text badge rounded-pill bg-primary"> ${details.name}
+        </h5>
+      <h5 class="card-title badge bg-info fs-6 d-block w-50 text-wrap" id="relese-date">${details.releaseDate}</h5>
+
+      <h4 class="card-title card-title badge bg-warning fs-5 my-2 text-uppercase text-wrap" id="relese-date">MainFeatures:</h4>
       <p class="card-text">
       Storage: ${details.mainFeatures.storage}
       </p>
@@ -230,7 +242,7 @@ const displayPhoneDetail = details =>{
       </p>
 
 
-      <h4 class="card-title" id="relese-date">Other:</h4>
+      <h4 class="card-title card-title badge bg-success fs-5 my-2 text-uppercase" id="relese-date">Other:</h4>
       <p class="card-text">
       Bluetooth: ${details.others.Bluetooth}
       </p>

@@ -1,3 +1,81 @@
+body {
+  background-image: url(../endless-constellation.svg);
+}
+.display-body {
+  padding: 100px 0;
+}
+.heading-body {
+  display: flex;
+  justify-content: center;
+}
+.heading {
+  font-size: 30px;
+  color: #f6fcfc !important;
+  margin: 20px 30px 30px 30px;
+  box-shadow: 1px 5px 10px 0px #918a8a7a;
+  /* border: 1px solid aqua; */
+  /* border-radius: 0 30px 0px 30px; */
+  width: 30%;
+  background-color: rgba(17, 0, 255, 0.116);
+}
+/* search */
+.search-body {
+  margin: auto;
+  width: 50%;
+  box-shadow: 1px 5px 10px 0px #918a8a7a;
+  border-radius: 30px 30px 0 30px;
+}
+.search-input {
+  width: 75%;
+  padding: 15px;
+  border-radius: 30px;
+  background-color: rgba(10, 10, 10, 0.239);
+  color: #ffffff;
+  border: none;
+}
+.search-input::placeholder {
+  color: #ffffff;
+  padding-left: 20px;
+}
+.search-input:focus {
+  background-color: rgba(10, 10, 10, 0.239);
+  color: #ffffff;
+  padding-left: 20px;
+  /* border: 1px solid aqua; */
+  border: none;
+}
+.search-btn {
+  color: aqua;
+  font-weight: bold;
+  border: 1px solid rgba(0, 255, 255, 0.534);
+
+  background-color: rgba(10, 10, 10, 0.239);
+  border-radius: 0 30px 0 30px;
+}
+.search-btn:hover {
+  color: #ffffff;
+  border: 1px solid aqua;
+  background-color: rgba(17, 0, 255, 0.116);
+}
+/* error */
+
+.error {
+  display: block;
+  width: 50%;
+  margin: auto;
+  padding: 30px 0 0 0;
+}
+.error-text {
+  color: red;
+  background-color: rgba(0, 255, 76, 0.657);
+  padding: 10px 5px 10px 5px;
+  border-radius: 30px;
+  margin: auto;
+  width: 40%;
+  text-align: center;
+  font-size: 15px;
+  box-shadow: 1px 5px 10px 0px rgba(0, 255, 76, 0.239);
+}
 .error {
   display: none;
 }
@@ -9,14 +87,22 @@
 }
 .see-btn {
   display: none;
-}
-.error-display {
+  padding: 10px 30px;
   color: #ffffff;
-  background-color: brown;
-  padding: 5px;
-  border-radius: 30px;
-  margin: auto;
-  width: 50%;
-  text-align: center;
-  font-size: 15px;
+  box-shadow: 1px 5px 5px 0px cyan;
+}
+.see-btn:hover {
+  color: aqua;
+  border: 1px solid aqua;
+  background: transparent;
+  border-radius: 5px;
+  box-shadow: 1px 5px 10px 0px rgba(0, 255, 76, 0.239);
+}
+@media only screen and (max-width: 600px) {
+  .bottom-button {
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
 }
