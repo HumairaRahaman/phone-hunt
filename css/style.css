@@ -1,3 +1,22 @@
 .error {
   display: none;
 }
+.bottom-button {
+  margin-top: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+}
+.see-btn {
+  display: none;
+}
+.error-display {
+  color: #ffffff;
+  background-color: brown;
+  padding: 5px;
+  border-radius: 30px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  font-size: 15px;
+}

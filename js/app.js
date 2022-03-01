@@ -1,8 +1,10 @@
 
 // show all phone button search event
 const allPhone = () =>{
+    
     const searchValue = document.getElementById('search-box')
     searchText = searchValue.value
+    // console.log(searchText)
     searchValue.value = ''
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
@@ -15,7 +17,44 @@ const allPhone = () =>{
 
 // show all phone display
 const displayPhones = phones =>{
+   console.log(phones.length)
+   if(phones.length === 0){
+       document.getElementById('error').style.display = 'block'
+   }
+   else{
+    document.getElementById('error').style.display = 'none'
+   if(phones.length >= 20){
     const limitPhones = phones.slice(0,20)
+    // console.log(limitPhones)
+    const showPhones = document.getElementById('show-phones')
+    limitPhones.forEach( phone => {
+    //  console.log(phone)
+     const div = document.createElement('div')
+     div.classList.add('col')
+     div.innerHTML = `
+     <div class="card">
+            <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="..." />
+        <div class="card-body">
+            <h2 class="card-title">${phone.brand}</h2>
+            <h5 class="card-text">
+            ${phone.phone_name}
+            </h5>
+        </div>
+        <div class="card-footer bg-transparent">
+        <button onClick="showDetail('${phone.slug}')" class="btn btn-primary mx-auto" type="submit">Details</button>
+        </div>
+   </div>
+     `
+     document.getElementById('see-btn').style.display = 'block'
+     showPhones.appendChild(div)
+    })
+    
+     
+    }
+
+    else{
+        const limitPhones = phones.slice(0,20)
+    // console.log(limitPhones)
     const showPhones = document.getElementById('show-phones')
     limitPhones.forEach( phone => {
      console.log(phone)
@@ -36,10 +75,15 @@ const displayPhones = phones =>{
         <button onClick="showDetail('${phone.slug}')" class="btn btn-primary mx-auto" type="submit">Details</button>
         </div>
    </div>
+
      `
      showPhones.appendChild(div)
+    })
+    
      
- })
+    }
+}
+   
 
 }
 // show all phone detail api connect
