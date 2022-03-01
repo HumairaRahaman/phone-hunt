@@ -8,15 +8,16 @@ const allPhone = () =>{
     fetch(url)
     .then((res) => res.json())
     .then(data => displayPhones(data.data))
-    document.getElementById('search-box').value = ''
+    // document.getElementById('search-box').value = ''
 
 }
 
 
 // show all phone display
 const displayPhones = phones =>{
- const showPhones = document.getElementById('show-phones')
- phones.forEach( phone => {
+    const limitPhones = phones.slice(0,20)
+    const showPhones = document.getElementById('show-phones')
+    limitPhones.forEach( phone => {
      console.log(phone)
    
     
