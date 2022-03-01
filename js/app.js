@@ -1,4 +1,3 @@
-
 // show all phone button search event
 const allPhone = () =>{
     
@@ -17,7 +16,7 @@ const allPhone = () =>{
 
 // show all phone display
 const displayPhones = phones =>{
-    const showPhones = document.getElementById('show-phones').innerHTML = ''
+    let showPhones = document.getElementById('show-phones').innerHTML = ''
     let cleanDetails = document.getElementById('phone-detail').innerHTML = ''
     document.getElementById('see-btn').style.display = 'none'
     
@@ -27,67 +26,103 @@ const displayPhones = phones =>{
    }
    else{
     
-    document.getElementById('error').style.display = 'none'
-   if(phones.length >= 20){
-    const limitPhones = phones.slice(0,20)
-    // console.log(limitPhones)
-    const showPhones = document.getElementById('show-phones')
-    limitPhones.forEach( phone => {
-    //  console.log(phone)
-     const div = document.createElement('div')
-     div.classList.add('col')
-     div.innerHTML = `
-     <div class="card p-4 shadow p-3 mb-5 bg-body rounded bg-transparent">
-            <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="..." />
-        <div class="card-body">
-            <h2 class="card-title text-info">${phone.brand}</h2>
-            <h5 class="card-text badge rounded-pill bg-primary">
-            ${phone.phone_name}
-            </h5>
-        </div>
-        <div class="card-footer text-center bg-transparent">
-        <button onClick="showDetail('${phone.slug}')" class="btn btn-warning border border-warning rounded-top btn-lg  mx-auto" type="submit">Details</button>
-        </div>
-   </div>
-   
-     `
-     document.getElementById('see-btn').style.display = 'block'
-     showPhones.appendChild(div)
-    })
+        document.getElementById('error').style.display = 'none'
+
+
+        // show 20 phones
+        if(phones.length > 20){
+         const limitPhones = phones.slice(0,20)
+           
+        let showPhones = document.getElementById('show-phones')
+        limitPhones.forEach( phone => {
+        
+        const div = document.createElement('div')
+        div.classList.add('col')
+            div.innerHTML = `
+            <div class="card p-4 shadow p-3 mb-5 bg-body rounded bg-transparent">
+                    <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="..." />
+                <div class="card-body">
+                    <h2 class="card-title text-info">${phone.brand}</h2>
+                    <h5 class="card-text badge rounded-pill bg-primary">
+                    ${phone.phone_name}
+                    </h5>
+                </div>
+                <div class="card-footer text-center bg-transparent">
+                <button onClick="showDetail('${phone.slug}')" class="btn btn-warning border border-warning rounded-top btn-lg  mx-auto" type="submit">Details</button>
+                </div>
+            </div>
+        
+            `
+          document.getElementById('see-btn').style.display = 'block'
+          showPhones.appendChild(div)
+        })
     
      
-    }
+     }
 
     else{
         const limitPhones = phones.slice(0,20)
-    // console.log(limitPhones)
-    const showPhones = document.getElementById('show-phones')
-    limitPhones.forEach( phone => {
-     console.log(phone)
-   
+        // console.log(limitPhones)
+        let showPhones = document.getElementById('show-phones')
+        limitPhones.forEach( phone => {
+        console.log(phone)
     
-     const div = document.createElement('div')
-     div.classList.add('col')
-     div.innerHTML = `
-     <div class="card p-4 shadow-lg p-3 mb-5 bg-body rounded bg-transparent">
-            <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="..." />
-        <div class="card-body">
-            <h2 class="card-title text-info">${phone.brand}</h2>
-            <h5 class="card-text badge rounded-pill bg-primary">
-            ${phone.phone_name}
-            </h5>
+        
+        const div = document.createElement('div')
+        div.classList.add('col')
+        div.innerHTML = `
+        <div class="card p-4 shadow-lg p-3 mb-5 bg-body rounded bg-transparent">
+                <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="..." />
+            <div class="card-body">
+                <h2 class="card-title text-info">${phone.brand}</h2>
+                <h5 class="card-text badge rounded-pill bg-primary">
+                ${phone.phone_name}
+                </h5>
+            </div>
+            <div class="card-footer text-center  bg-transparent">
+            <button onClick="showDetail('${phone.slug}')" class="btn btn-warning rounded-top border border-warning btn-lg  mx-auto" type="submit">Details</button>
+            </div>
         </div>
-        <div class="card-footer text-center  bg-transparent">
-        <button onClick="showDetail('${phone.slug}')" class="btn btn-warning rounded-top border border-warning btn-lg  mx-auto" type="submit">Details</button>
-        </div>
-   </div>
 
-     `
-     showPhones.appendChild(div)
-    })
+        `
+        showPhones.appendChild(div)
+        })
     
      
     }
+
+    // see more btn show after 20
+    const seeMoreBtn = document.getElementById('see-btn')
+    console.log('ball')
+   seeMoreBtn.addEventListener("click" ,()=>{
+    document.getElementById('show-phones').innerHTML = ''
+    const limitPhones = phones.slice(20,40)
+    let showPhones = document.getElementById('show-phones')
+        limitPhones.forEach( phone => {
+        //  console.log(phone)
+        const div = document.createElement('div')
+        div.classList.add('col')
+            div.innerHTML = `
+            <div class="card p-4 shadow p-3 mb-5 bg-body rounded bg-transparent">
+                    <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="..." />
+                <div class="card-body">
+                    <h2 class="card-title text-info">${phone.brand}</h2>
+                    <h5 class="card-text badge rounded-pill bg-primary">
+                    ${phone.phone_name}
+                    </h5>
+                </div>
+                <div class="card-footer text-center bg-transparent">
+                <button onClick="showDetail('${phone.slug}')" class="btn btn-warning border border-warning rounded-top btn-lg  mx-auto" type="submit">Details</button>
+                </div>
+            </div>
+        
+            `
+          document.getElementById('see-btn').style.display = 'none'
+          showPhones.appendChild(div)
+        })       
+
+        })
+
    
 }
 
@@ -267,5 +302,8 @@ const displayPhoneDetail = details =>{
     phoneDetails.appendChild(div)
     
 }
+
+
+
 
 
